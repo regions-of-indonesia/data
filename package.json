@@ -11,30 +11,6 @@
       "default": "./dist/index.js",
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
-    },
-    "./provinces": {
-      "require": "./dist/provinces.js",
-      "default": "./dist/provinces.js",
-      "import": "./dist/provinces.mjs",
-      "types": "./dist/provinces.d.ts"
-    },
-    "./districts": {
-      "require": "./dist/districts.js",
-      "default": "./dist/districts.js",
-      "import": "./dist/districts.mjs",
-      "types": "./dist/districts.d.ts"
-    },
-    "./subdistricts": {
-      "require": "./dist/subdistricts.js",
-      "default": "./dist/subdistricts.js",
-      "import": "./dist/subdistricts.mjs",
-      "types": "./dist/subdistricts.d.ts"
-    },
-    "./villages": {
-      "require": "./dist/villages.js",
-      "default": "./dist/villages.js",
-      "import": "./dist/villages.mjs",
-      "types": "./dist/villages.d.ts"
     }
   },
   "files": [
@@ -42,7 +18,7 @@
   ],
   "scripts": {
     "generate": "ts-node-esm --project scripts/tsconfig.json scripts/index.ts",
-    "build": "rimraf dist && microbundle src/index.ts src/provinces.ts src/districts.ts src/subdistricts.ts src/villages.ts --format esm,cjs --sourcemap false",
+    "build": "rimraf dist && microbundle src/index.ts --format esm,cjs --sourcemap false",
     "release": "release-it"
   },
   "repository": "https://github.com/regions-of-indonesia/data.git",

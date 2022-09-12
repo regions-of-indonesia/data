@@ -26,9 +26,8 @@ async function execute(filename: KeyofVariable) {
 const filenames = Object.keys(variables) as KeyofVariable[];
 
 async function index() {
-  // const texts = [filenames.map((filename) => `export { ${variables[filename]} } from './${filename}';`).join("\n")].join("\n\n");
-  const texts = `export {}`;
-  await jetpack.writeAsync(SOURCE_PATH.index, texts);
+  const text = [filenames.map((filename) => `export { ${variables[filename]} } from './${filename}';`).join("\n")].join("\n\n");
+  await jetpack.writeAsync(SOURCE_PATH.index, text);
 }
 
 async function writeSourceFile() {
