@@ -8,23 +8,28 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./provinces": {
       "require": "./dist/provinces.js",
-      "import": "./dist/provinces.mjs"
+      "import": "./dist/provinces.mjs",
+      "types": "./dist/provinces.d.ts"
     },
     "./districts": {
       "require": "./dist/districts.js",
-      "import": "./dist/districts.mjs"
+      "import": "./dist/districts.mjs",
+      "types": "./dist/districts.d.ts"
     },
     "./subdistricts": {
       "require": "./dist/subdistricts.js",
-      "import": "./dist/subdistricts.mjs"
+      "import": "./dist/subdistricts.mjs",
+      "types": "./dist/subdistricts.d.ts"
     },
     "./villages": {
       "require": "./dist/villages.js",
-      "import": "./dist/villages.mjs"
+      "import": "./dist/villages.mjs",
+      "types": "./dist/villages.d.ts"
     }
   },
   "files": [
