@@ -1,4 +1,4 @@
-![](./public/Cover.png)
+[![](./public/Cover.png)](https://regions-of-indonesia.netlify.app)
 
 # Regions of Indonesia
 
@@ -24,7 +24,7 @@ Usage
 ```typescript
 import { Provinces, Districts, Subdistricts, Villages } from "@regions-of-indonesia/data";
 
-// Each data is object with type Record<string, string>, which is object key as code, and object value as name
+// Each data is object with type {[key: string]: string}, which is object key as code, and object value as name
 ```
 
 ## Support
