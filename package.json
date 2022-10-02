@@ -3,35 +3,35 @@
   "version": "2.0.0",
   "description": "Regions of Indonesia data",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "module": "./dist/index.modern.mjs",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "default": "./dist/index.js"
-    }
+    "require": "./dist/index.js",
+    "default": "./dist/index.modern.mjs"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "generate": "ts-node-esm --project scripts/tsconfig.json scripts/index.ts",
-    "build": "rimraf dist && microbundle src/index.ts --format esm,cjs --sourcemap false",
-    "release": "release-it"
+    "test": "vitest run",
+    "test-ui": "vitest --ui",
+    "build": "microbundle src/index.ts --format modern,cjs --sourcemap false",
+    "prerelease": "yarn run test && yarn run build",
+    "release": "release-it --only-version"
   },
   "repository": "https://github.com/regions-of-indonesia/data.git",
   "author": "flamrdevs <flamrdevs@gmail.com>",
   "license": "GPL-3.0",
   "private": false,
   "devDependencies": {
+    "@vitest/ui": "^0.23.1",
     "fs-jetpack": "^4.3.1",
     "microbundle": "^0.15.1",
     "mysql2": "^2.3.3",
     "release-it": "^15.4.1",
-    "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.4",
+    "vitest": "^0.23.1"
   }
 }
