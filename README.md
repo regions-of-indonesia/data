@@ -6,6 +6,8 @@
   <a href="https://indonesia-api.netlify.app/regions-of-indonesia"><img src="https://raw.githubusercontent.com/indonesia-api/indonesia-api/main/public/Badge.svg?sanitize=true" /></a>
 </p>
 
+<img src="https://hiiits.deta.dev/hit/regions-of-indonesia/data?" width="100%" heigth="10px" />
+
 # Regions of Indonesia
 
 Regions of Indonesia
@@ -25,12 +27,14 @@ Usage
 ```typescript
 import { Provinces, Districts, Subdistricts, Villages } from "@regions-of-indonesia/data";
 
-// Provinces is {[key: string]: string}
-// Districts is {[key: string]: string}
-// Subdistricts is {[key: string]: string}
-// Villages is {[key: string]: string}
-
-// type {[key: string]: string} means key is region code, value is region name
+/**
+ * Provinces is {[key: string]: string}
+ * Districts is {[key: string]: string}
+ * Subdistricts is {[key: string]: string}
+ * Villages is {[key: string]: string}
+ *
+ * type {[key: string]: string} means key is region code, value is region name
+ */
 ```
 
 ## Support
