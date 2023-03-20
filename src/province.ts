@@ -1,4 +1,4 @@
-export const Provinces: {[key: string]: string} = {
+export const PROVINCE: { [key: string]: string } = {
   "11": "ACEH",
   "12": "SUMATERA UTARA",
   "13": "SUMATERA BARAT",
@@ -32,5 +32,5 @@ export const Provinces: {[key: string]: string} = {
   "81": "MALUKU",
   "82": "MALUKU UTARA",
   "91": "PAPUA",
-  "92": "PAPUA BARAT"
+  "92": "PAPUA BARAT",
 };

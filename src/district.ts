@@ -1,4 +1,4 @@
-export const Districts: {[key: string]: string} = {
+export const DISTRICT: { [key: string]: string } = {
   "11.01": "KAB. ACEH SELATAN",
   "11.02": "KAB. ACEH TENGGARA",
   "11.03": "KAB. ACEH TIMUR",
@@ -512,5 +512,5 @@ export const Districts: {[key: string]: string} = {
   "92.10": "KAB. MAYBRAT",
   "92.11": "KAB. MANOKWARI SELATAN",
   "92.12": "KAB. PEGUNUNGAN ARFAK",
-  "92.71": "KOTA SORONG"
+  "92.71": "KOTA SORONG",
 };

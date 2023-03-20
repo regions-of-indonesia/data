@@ -1,36 +1,44 @@
 import { describe, expect, it } from "vitest";
 
-import { Provinces, Districts, Subdistricts, Villages } from "../src";
+import { PROVINCE, DISTRICT, SUBDISTRICT, VILLAGE } from "../src";
 
-function expectObjectIsValidCodeName(object: object) {
-  Object.entries(object).forEach(([key, value]) => {
-    expect(key).toBeTypeOf("string");
-    expect(value).toBeTypeOf("string");
-    expect(key).not.toEqual("");
-    expect(value).not.toEqual("");
-  });
-}
+const isNotNull = (value: unknown) => value != null,
+  isObject = (value: unknown): value is object => typeof value === "object" && isNotNull(value),
+  isString = (value: unknown): value is string => typeof value === "string" && isNotNull(value);
 
-describe("Provinces", () => {
-  it("Perfect", async () => {
-    expectObjectIsValidCodeName(Provinces);
-  });
-});
+const createCodeShouldHaveDot = (count: number) => (code: string) => (code.match(/\./g) || []).length === count,
+  isNotEmptyString = (value: string) => value != "";
 
-describe("Districts", () => {
-  it("Perfect", async () => {
-    expectObjectIsValidCodeName(Districts);
-  });
-});
+const isValidCodeNameObject = (object: Object, options: { dot?: number } = {}): boolean => {
+  const { dot = 0 } = options,
+    codeShouldHaveDot = createCodeShouldHaveDot(dot);
+  return isObject(object)
+    ? Object.entries(object).every(
+        ([code, name]) => isString(code) && isString(name) && isNotEmptyString(code) && isNotEmptyString(name) && codeShouldHaveDot(code)
+      )
+    : false;
+};
 
-describe("Subdistricts", () => {
-  it("Perfect", async () => {
-    expectObjectIsValidCodeName(Subdistricts);
+describe("PROVINCE", () => {
+  it("Valid", async () => {
+    expect(isValidCodeNameObject(PROVINCE, { dot: 0 })).toBeTruthy();
   });
 });
 
-describe("Villages", () => {
-  it("Perfect", async () => {
-    expectObjectIsValidCodeName(Villages);
+describe("DISTRICT", () => {
+  it("Valid", async () => {
+    expect(isValidCodeNameObject(DISTRICT, { dot: 1 })).toBeTruthy();
+  });
+});
+
+describe("SUBDISTRICT", () => {
+  it("Valid", async () => {
+    expect(isValidCodeNameObject(SUBDISTRICT, { dot: 2 })).toBeTruthy();
+  });
+});
+
+describe("VILLAGE", () => {
+  it("Valid", async () => {
+    expect(isValidCodeNameObject(VILLAGE, { dot: 3 })).toBeTruthy();
   });
 });

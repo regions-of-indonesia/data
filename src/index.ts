@@ -1,4 +1,4 @@
-export { Provinces } from './provinces';
-export { Districts } from './districts';
-export { Subdistricts } from './subdistricts';
-export { Villages } from './villages';
+export { PROVINCE } from "./province";
+export { DISTRICT } from "./district";
+export { SUBDISTRICT } from "./subdistrict";
+export { VILLAGE } from "./village";

@@ -6,7 +6,7 @@
   <a href="https://indonesia-api.netlify.app/regions-of-indonesia"><img src="https://raw.githubusercontent.com/indonesia-api/indonesia-api/main/public/Badge.svg?sanitize=true" /></a>
 </p>
 
-<img src="https://hiiits.deta.dev/hit/regions-of-indonesia/data?" width="100%" heigth="10px" />
+<img src="https://hiiits.deno.dev/hit/regions-of-indonesia/data?" width="100%" heigth="10px" />
 
 # Regions of Indonesia
 
@@ -20,20 +20,22 @@ Install
 npm install @regions-of-indonesia/data
 # or
 yarn add @regions-of-indonesia/data
+# or
+pnpm add @regions-of-indonesia/data
 ```
 
 Usage
 
 ```typescript
-import { Provinces, Districts, Subdistricts, Villages } from "@regions-of-indonesia/data";
+import { PROVINCE, DISTRICT, SUBDISTRICT, VILLAGE } from "@regions-of-indonesia/data";
 
 /**
- * Provinces is {[key: string]: string}
- * Districts is {[key: string]: string}
- * Subdistricts is {[key: string]: string}
- * Villages is {[key: string]: string}
+ * PROVINCE is {[key: string]: string}
+ * DISTRICT is {[key: string]: string}
+ * SUBDISTRICT is {[key: string]: string}
+ * VILLAGE is {[key: string]: string}
  *
- * type {[key: string]: string} means key is region code, value is region name
+ * type {[key: string]: string} means, key is region code and value is region name
  */
 ```
 
