@@ -9,7 +9,7 @@
 
 # Regions of Indonesia
 
-Regions of Indonesia data
+Regions of Indonesia data.
 
 ## Package
 
@@ -28,6 +28,16 @@ Usage
 ```typescript
 import { PROVINCE, DISTRICT, SUBDISTRICT, VILLAGE } from "@regions-of-indonesia/data";
 
+console.log(PROVINCE);
+/**
+ * {
+ *   "11": "ACEH",
+ *   "12": "SUMATERA UTARA",
+ *   "13": "SUMATERA BARAT",
+ *   ...
+ * }
+ */
+
 /**
  * PROVINCE is {[key: string]: string}
  * DISTRICT is {[key: string]: string}
@@ -37,6 +47,10 @@ import { PROVINCE, DISTRICT, SUBDISTRICT, VILLAGE } from "@regions-of-indonesia/
  * type {[key: string]: string} means, key is region code and value is region name
  */
 ```
+
+## Data Source
+
+- [cahyadsn](https://github.com/cahyadsn) - [wilayah](https://github.com/cahyadsn/wilayah) - SQL database
 
 ## Support
 
@@ -48,21 +62,21 @@ import { PROVINCE, DISTRICT, SUBDISTRICT, VILLAGE } from "@regions-of-indonesia/
 
 GPL-3.0
 
-<!--  -->
+<!-- exteral -->
 
 [cover]: https://raw.githubusercontent.com/regions-of-indonesia/regions-of-indonesia/main/public/cover@2.png?sanitize=true
 [logo]: https://raw.githubusercontent.com/regions-of-indonesia/regions-of-indonesia/main/public/logo@2.png?sanitize=true
 [site]: https://regions-of-indonesia.netlify.app
 [docs]: https://docs-regions-of-indonesia.netlify.app
 
-<!--  -->
+<!-- github app -->
 
 [github:api]: https://github.com/regions-of-indonesia/api
 [github:static-api]: https://github.com/regions-of-indonesia/static-api
 [github:site]: https://github.com/regions-of-indonesia/site
 [github:docs]: https://github.com/regions-of-indonesia/docs
 
-<!--  -->
+<!-- github client -->
 
 [github:client]: https://github.com/regions-of-indonesia/client
 [github:data]: https://github.com/regions-of-indonesia/data
@@ -70,7 +84,7 @@ GPL-3.0
 [github:dart-client]: https://github.com/regions-of-indonesia/dart-client
 [github:python-client]: https://github.com/regions-of-indonesia/python-client
 
-<!--  -->
+<!-- github library -->
 
 [github:localforage]: https://github.com/regions-of-indonesia/localforage
 [github:swr]: https://github.com/regions-of-indonesia/swr
@@ -79,19 +93,7 @@ GPL-3.0
 [github:vue-query]: https://github.com/regions-of-indonesia/vue-query
 [github:svelte-query]: https://github.com/regions-of-indonesia/svelte-query
 
-<!--  -->
-
-[github:example-react-ts]: https://github.com/regions-of-indonesia/example-react-ts
-[github:example-react-ts-swr]: https://github.com/regions-of-indonesia/example-react-ts-swr
-[github:example-react-ts-query]: https://github.com/regions-of-indonesia/example-react-ts-query
-[github:example-solid-ts]: https://github.com/regions-of-indonesia/example-solid-ts
-[github:example-solid-ts-query]: https://github.com/regions-of-indonesia/example-solid-ts-query
-[github:example-vue-ts]: https://github.com/regions-of-indonesia/example-vue-ts
-[github:example-vue-ts-query]: https://github.com/regions-of-indonesia/example-vue-ts-query
-[github:example-svelte-ts]: https://github.com/regions-of-indonesia/example-svelte-ts
-[github:example-svelte-ts-query]: https://github.com/regions-of-indonesia/example-svelte-ts-query
-
-<!--  -->
+<!-- support -->
 
 [support:ko-fi]: https://ko-fi.com/flamrdevs
 [support:ko-fi-button]: https://flamrdevs.vercel.app/ko-fi.png

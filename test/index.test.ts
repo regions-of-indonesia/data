@@ -6,39 +6,52 @@ const isNotNull = (value: unknown) => value != null,
   isObject = (value: unknown): value is object => typeof value === "object" && isNotNull(value),
   isString = (value: unknown): value is string => typeof value === "string" && isNotNull(value);
 
-const createCodeShouldHaveDot = (count: number) => (code: string) => (code.match(/\./g) || []).length === count,
-  isNotEmptyString = (value: string) => value != "";
+const coderegexp = new RegExp(/^\d+(\.\d+)*$/);
 
-const isValidCodeNameObject = (object: Object, options: { dot?: number } = {}): boolean => {
-  const { dot = 0 } = options,
-    codeShouldHaveDot = createCodeShouldHaveDot(dot);
+const isValidCode = (code: string) => coderegexp.test(code);
+
+const createCodeShouldHaveDot = (count: number) => (code: string) => (code.match(/\./g) || []).length === count,
+  isNotEmptyString = (value: string) => value !== "";
+
+const isValidCodeNameObject = (object: Object, dot: number): boolean => {
+  const codeShouldHaveDot = createCodeShouldHaveDot(dot);
   return isObject(object)
     ? Object.entries(object).every(
-        ([code, name]) => isString(code) && isString(name) && isNotEmptyString(code) && isNotEmptyString(name) && codeShouldHaveDot(code)
+        ([code, name]) =>
+          isString(code) &&
+          isValidCode(code) &&
+          isString(name) &&
+          isNotEmptyString(code) &&
+          isNotEmptyString(name) &&
+          codeShouldHaveDot(code)
       )
     : false;
 };
 
+const expectValidCodeNameObject = (object: Object, dot: number) => {
+  expect(isValidCodeNameObject(object, dot)).toBeTruthy();
+};
+
 describe("PROVINCE", () => {
   it("Valid", async () => {
-    expect(isValidCodeNameObject(PROVINCE, { dot: 0 })).toBeTruthy();
+    expectValidCodeNameObject(PROVINCE, 0);
   });
 });
 
 describe("DISTRICT", () => {
   it("Valid", async () => {
-    expect(isValidCodeNameObject(DISTRICT, { dot: 1 })).toBeTruthy();
+    expectValidCodeNameObject(DISTRICT, 1);
   });
 });
 
 describe("SUBDISTRICT", () => {
   it("Valid", async () => {
-    expect(isValidCodeNameObject(SUBDISTRICT, { dot: 2 })).toBeTruthy();
+    expectValidCodeNameObject(SUBDISTRICT, 2);
   });
 });
 
 describe("VILLAGE", () => {
   it("Valid", async () => {
-    expect(isValidCodeNameObject(VILLAGE, { dot: 3 })).toBeTruthy();
+    expectValidCodeNameObject(VILLAGE, 3);
   });
 });

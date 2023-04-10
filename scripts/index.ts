@@ -2,34 +2,27 @@ import fsJetpack from "fs-jetpack";
 import mysql2 from "mysql2/promise";
 import prettier from "prettier";
 
-type Wilayah = {
-  kode: string;
-  nama: string;
-};
+type Wilayah = { kode: string; nama: string };
 
-type CodeName = {
-  code: string;
-  name: string;
-};
+type CodeName = { code: string; name: string };
 
-type CodeNameObject = {
-  [key: CodeName["code"]]: CodeName["name"];
-};
+type CodeNameObject = { [key: CodeName["code"]]: CodeName["name"] };
 
-type Collection = {
-  province: CodeNameObject;
-  district: CodeNameObject;
-  subdistrict: CodeNameObject;
-  village: CodeNameObject;
-};
+type RegionLevel = "province" | "district" | "subdistrict" | "village";
+
+type Collection = Record<RegionLevel, CodeNameObject>;
 
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      REWRITE?: string;
+      REWRITE_WILAYAH?: string;
+      REWRITE_COLLECTION?: string;
     }
   }
 }
+
+const RegionLevelArray = ["province", "district", "subdistrict", "village"] satisfies RegionLevel[];
+const mapRegionLevelArray = <T extends any>(callback: (level: RegionLevel) => T) => RegionLevelArray.map(callback);
 
 const config = {
   cache: {
@@ -128,7 +121,7 @@ const wilayah = {
     },
   },
   async rows(): Promise<Wilayah[]> {
-    if (process.env.REWRITE === "true" || !(await this.cache.exist())) {
+    if (process.env.REWRITE_WILAYAH === "true" || !(await this.cache.exist())) {
       console.log("wilayah:no-cache");
       return await this.cache.write(await this.sql.query());
     }
@@ -141,20 +134,15 @@ const wilayah = {
 const collections = {
   cache: {
     async exist(): Promise<boolean> {
-      async function existCollection(key: keyof Collection) {
-        return (await fsJetpack.existsAsync(config.cache.name.collection[key])) === "file";
-      }
-      return [
-        await existCollection("province"),
-        await existCollection("district"),
-        await existCollection("subdistrict"),
-        await existCollection("village"),
-      ].every(Boolean);
+      return (
+        await Promise.all(
+          mapRegionLevelArray(async (key: keyof Collection) => (await fsJetpack.existsAsync(config.cache.name.collection[key])) === "file")
+        )
+      ).every(Boolean);
     },
     async read(): Promise<Collection> {
-      async function readCollection(key: keyof Collection) {
-        return (await fsJetpack.readAsync(config.cache.name.collection[key], "json")) as unknown as CodeNameObject;
-      }
+      const readCollection = async (key: keyof Collection) =>
+        (await fsJetpack.readAsync(config.cache.name.collection[key], "json")) as unknown as CodeNameObject;
       return {
         province: await readCollection("province"),
         district: await readCollection("district"),
@@ -163,62 +151,52 @@ const collections = {
       } as Collection;
     },
     async write(collection: Collection): Promise<Collection> {
-      async function writeCollection(key: keyof Collection) {
-        await fsJetpack.writeAsync(config.cache.name.collection[key], collection[key]);
-      }
-      await writeCollection("province");
-      await writeCollection("district");
-      await writeCollection("subdistrict");
-      await writeCollection("village");
+      await Promise.all(
+        mapRegionLevelArray(async (key: keyof Collection) => fsJetpack.writeAsync(config.cache.name.collection[key], collection[key]))
+      );
       return collection;
     },
   },
   async from(rows: Wilayah[]): Promise<Collection> {
-    if (process.env.REWRITE === "true" || !(await this.cache.exist())) {
+    if (process.env.REWRITE_COLLECTION === "true" || !(await this.cache.exist())) {
       console.log("collections:no-cache");
-      const collection: Collection = {
-        province: {},
-        district: {},
-        subdistrict: {},
-        village: {},
+      const C: Collection = { province: {}, district: {}, subdistrict: {}, village: {} };
+
+      const D: Record<RegionLevel, CodeName[]> = { province: [], district: [], subdistrict: [], village: [] };
+
+      let code: string, name: string, length: number;
+
+      const checkCodeDuplication = (key: keyof Collection) => {
+        if (C[key].hasOwnProperty(code)) D[key].push({ code, name });
+        else C[key][code] = name;
       };
 
-      const duplications: {
-        province: CodeName[];
-        district: CodeName[];
-        subdistrict: CodeName[];
-        village: CodeName[];
-      } = {
-        province: [],
-        district: [],
-        subdistrict: [],
-        village: [],
-      };
+      const mapCodeNameToCode_fn = (codename: CodeName) => codename.code;
+      const mapCodeNameToCode = (codenames: CodeName[]) => codenames.map(mapCodeNameToCode_fn);
 
       rows.forEach((row) => {
-        const { kode: code, nama: name } = row;
-        const { length } = code.split(".");
+        (code = row.kode), (name = row.nama), (length = code.split(".").length);
 
-        async function checkDuplication(key: keyof Collection) {
-          if (collection[key].hasOwnProperty(code)) duplications[key].push({ code, name });
-          else collection[key][code] = name;
-        }
-        if (length === 1) checkDuplication("province");
-        if (length === 2) checkDuplication("district");
-        if (length === 3) checkDuplication("subdistrict");
-        if (length === 4) checkDuplication("village");
+        if (length === 1) checkCodeDuplication("province");
+        if (length === 2) checkCodeDuplication("district");
+        if (length === 3) checkCodeDuplication("subdistrict");
+        if (length === 4) checkCodeDuplication("village");
       });
 
-      function isDuplicate(key: keyof Collection) {
-        return duplications[key].length > 0;
-      }
+      const isDuplicate = (key: keyof Collection) => D[key].length > 0;
       if (isDuplicate("province") || isDuplicate("district") || isDuplicate("subdistrict") || isDuplicate("village")) {
         throw new Error(
-          ["Duplications:", duplications.province, duplications.district, duplications.subdistrict, duplications.village].join("\n")
+          [
+            "Duplications:",
+            `          province : ${mapCodeNameToCode(D.province).join(",")}`,
+            `          district : ${mapCodeNameToCode(D.district).join(",")}`,
+            `       subdistrict : ${mapCodeNameToCode(D.subdistrict).join(",")}`,
+            `           village : ${mapCodeNameToCode(D.village).join(",")}`,
+          ].join("\n")
         );
       }
 
-      return await this.cache.write(collection);
+      return await this.cache.write(C);
     }
 
     console.log("collections:cache");
@@ -237,16 +215,14 @@ const source = {
       village: "VILLAGE",
     };
 
-    async function writeCollection(key: keyof Collection) {
-      const collectionText = typescriptformatter(
-        `export const ${variable[key]}: {[key: string]: string} = ${JSON.stringify(collection[key])};`
-      );
-      await fsJetpack.writeAsync(config.source.name.collection[key], collectionText);
-    }
-    writeCollection("province");
-    writeCollection("district");
-    writeCollection("subdistrict");
-    writeCollection("village");
+    await Promise.all(
+      mapRegionLevelArray(async (key: keyof Collection) => {
+        const collectionText = typescriptformatter(
+          `export const ${variable[key]}: {[key: string]: string} = ${JSON.stringify(collection[key])};`
+        );
+        await fsJetpack.writeAsync(config.source.name.collection[key], collectionText);
+      })
+    );
 
     const indexText = typescriptformatter(
       Object.entries(variable)

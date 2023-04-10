@@ -14,7 +14,9 @@
   ],
   "scripts": {
     "generate": "rimraf ./src && ts-node-esm --project scripts/tsconfig.json scripts/index.ts",
-    "generate:rewrite": "rimraf ./src &&set REWRITE=true&& ts-node-esm --project scripts/tsconfig.json scripts/index.ts",
+    "generate:rewrite-wilayah": "set REWRITE_WILAYAH=true&&yarn run generate",
+    "generate:rewrite-collection": "set REWRITE_COLLECTION=true&&yarn run generate",
+    "generate:full-rewrite": "set REWRITE_WILAYAH=true&&set REWRITE_COLLECTION=true&&yarn run generate",
     "test": "vitest run",
     "test-ui": "vitest --ui",
     "build": "microbundle src/index.ts --format modern,cjs --sourcemap false",
