@@ -1,4 +1,4 @@
-export const SUBDISTRICT: { [key: string]: string } = {
+export const SUBDISTRICT: Record<string, string> = {
   "11.01.01": "Bakongan",
   "11.01.02": "Kluet Utara",
   "11.01.03": "Kluet Selatan",

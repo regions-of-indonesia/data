@@ -1,4 +1,4 @@
-export const VILLAGE: { [key: string]: string } = {
+export const VILLAGE: Record<string, string> = {
   "11.01.01.2001": "Keude Bakongan",
   "11.01.01.2002": "Ujong Mangki",
   "11.01.01.2003": "Ujong Padang",

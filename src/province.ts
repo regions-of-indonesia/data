@@ -1,4 +1,4 @@
-export const PROVINCE: { [key: string]: string } = {
+export const PROVINCE: Record<string, string> = {
   "11": "ACEH",
   "12": "SUMATERA UTARA",
   "13": "SUMATERA BARAT",

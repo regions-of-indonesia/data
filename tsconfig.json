@@ -2,13 +2,14 @@
   "compilerOptions": {
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
     "target": "ESNext",
-    "moduleResolution": "node",
-    "isolatedModules": true,
+    "module": "ESNext",
     "noUnusedLocals": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
     "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true,
-    "removeComments": true
-  }
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
