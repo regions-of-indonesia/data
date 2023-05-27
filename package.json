@@ -1,6 +1,6 @@
 {
   "name": "@regions-of-indonesia/data",
-  "version": "4.1.0",
+  "version": "5.0.0-0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "module": "./dist/index.mjs",
