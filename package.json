@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@regions-of-indonesia/types": "1.0.0-0",
-    "@regions-of-indonesia/utils": "1.0.0-1",
+    "@regions-of-indonesia/utils": "1.0.0-2",
     "@types/prettier": "^2.7.2",
     "@vitest/ui": "^0.31.1",
     "fs-jetpack": "^5.1.0",
