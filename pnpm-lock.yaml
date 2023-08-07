@@ -5,8 +5,8 @@ devDependencies:
     specifier: 1.0.0-0
     version: 1.0.0-0
   '@regions-of-indonesia/utils':
-    specifier: 1.0.0-2
-    version: 1.0.0-2
+    specifier: 1.0.0-3
+    version: 1.0.0-3
   '@types/prettier':
     specifier: ^2.7.2
     version: 2.7.2
@@ -527,10 +527,8 @@ packages:
     resolution: {integrity: sha512-dI9giQyHm7Jv/YLAiZwlZhEHhVYBPrpVkn0DBeB4xj5qvJF4vOpDqJHfEV4pCu2Ixe2L5LjZ6nJ+fEdoseAEyQ==}
     dev: true
 
-  /@regions-of-indonesia/utils@1.0.0-2:
-    resolution: {integrity: sha512-lPQ3Pab8/gy4osGtJf7wB6+yZhVtNkKs134IsrdHU1HY8SDG031BrFZENIsjGE+1S4HK01WzOoKvgPjvSDeVMg==}
-    dependencies:
-      '@regions-of-indonesia/types': 1.0.0-0
+  /@regions-of-indonesia/utils@1.0.0-3:
+    resolution: {integrity: sha512-MRXlKQQKRssfAp9guGfwUuMAdmf20SfYCrvRg8S4V6EVX95KUU83PSyATLnTkc4RGva3vRzxzdy1Dy9b5us5zw==}
     dev: true
 
   /@rollup/pluginutils@5.0.2:
