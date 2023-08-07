@@ -121,7 +121,7 @@ const start = async () => {
   );
 
   // write index
-  await src.writeAsync("index.ts", ts(KEYS.map((key) => `export {${key}} from "./${key.toLowerCase()}"`).join(";")));
+  // await src.writeAsync("index.ts", ts(KEYS.map((key) => `export {${key}} from "./${key.toLowerCase()}"`).join(";")));
 
   // then generated
   return table([["key", "count"]].concat(KEYS.map((key) => [key, `${COUNTS[key]}`])), {

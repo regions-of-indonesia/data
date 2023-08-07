@@ -8,7 +8,7 @@ export default defineConfig({
     target: "esnext",
     minify: true,
     lib: {
-      entry: ["src/index.ts"],
+      entry: ["src/province.ts", "src/district.ts", "src/subdistrict.ts", "src/village.ts"],
       formats: ["cjs", "es"],
     },
     rollupOptions: {

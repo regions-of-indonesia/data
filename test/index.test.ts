@@ -2,7 +2,10 @@ import { describe, expect, it } from "vitest";
 
 import { isRegion } from "@regions-of-indonesia/utils";
 
-import { PROVINCE, DISTRICT, SUBDISTRICT, VILLAGE } from "../src";
+import { PROVINCE } from "../src/province";
+import { DISTRICT } from "../src/district";
+import { SUBDISTRICT } from "../src/subdistrict";
+import { VILLAGE } from "../src/village";
 
 const expectValidRecord = (record: Record<string, string>) => {
   for (const code in record) expect(isRegion({ code, name: record[code] })).toBeTruthy();

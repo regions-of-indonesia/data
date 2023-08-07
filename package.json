@@ -14,6 +14,46 @@
         "types": "./dist/index.d.ts",
         "default": "./dist/index.cjs"
       }
+    },
+    "./provinces": {
+      "import": {
+        "types": "./dist/provinces.d.ts",
+        "default": "./dist/provinces.js"
+      },
+      "require": {
+        "types": "./dist/provinces.d.ts",
+        "default": "./dist/provinces.cjs"
+      }
+    },
+    "./districts": {
+      "import": {
+        "types": "./dist/districts.d.ts",
+        "default": "./dist/districts.js"
+      },
+      "require": {
+        "types": "./dist/districts.d.ts",
+        "default": "./dist/districts.cjs"
+      }
+    },
+    "./subdistricts": {
+      "import": {
+        "types": "./dist/subdistricts.d.ts",
+        "default": "./dist/subdistricts.js"
+      },
+      "require": {
+        "types": "./dist/subdistricts.d.ts",
+        "default": "./dist/subdistricts.cjs"
+      }
+    },
+    "./villages": {
+      "import": {
+        "types": "./dist/villages.d.ts",
+        "default": "./dist/villages.js"
+      },
+      "require": {
+        "types": "./dist/villages.d.ts",
+        "default": "./dist/villages.cjs"
+      }
     }
   },
   "files": [
