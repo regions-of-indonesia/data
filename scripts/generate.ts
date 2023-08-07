@@ -1,4 +1,4 @@
-import { cwd } from "fs-jetpack";
+import fs from "fs-jetpack";
 import { createConnection } from "mysql2/promise";
 import { format } from "prettier";
 import { table } from "table";
@@ -7,7 +7,7 @@ import type { Region } from "@regions-of-indonesia/types";
 
 type Wilayah = { kode: string; nama: string };
 
-const src = cwd("src");
+const src = fs.cwd("src");
 
 const start = async () => {
   // read wilayah.sql (require mysql server)
