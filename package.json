@@ -57,7 +57,11 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "province.d.ts",
+    "district.d.ts",
+    "subdistrict.d.ts",
+    "village.d.ts"
   ],
   "private": false,
   "repository": "https://github.com/regions-of-indonesia/data.git",
