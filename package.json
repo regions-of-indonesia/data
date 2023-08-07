@@ -15,44 +15,44 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./provinces": {
+    "./province": {
       "import": {
-        "types": "./dist/provinces.d.ts",
-        "default": "./dist/provinces.js"
+        "types": "./dist/province.d.ts",
+        "default": "./dist/province.js"
       },
       "require": {
-        "types": "./dist/provinces.d.ts",
-        "default": "./dist/provinces.cjs"
+        "types": "./dist/province.d.ts",
+        "default": "./dist/province.cjs"
       }
     },
-    "./districts": {
+    "./district": {
       "import": {
-        "types": "./dist/districts.d.ts",
-        "default": "./dist/districts.js"
+        "types": "./dist/district.d.ts",
+        "default": "./dist/district.js"
       },
       "require": {
-        "types": "./dist/districts.d.ts",
-        "default": "./dist/districts.cjs"
+        "types": "./dist/district.d.ts",
+        "default": "./dist/district.cjs"
       }
     },
-    "./subdistricts": {
+    "./subdistrict": {
       "import": {
-        "types": "./dist/subdistricts.d.ts",
-        "default": "./dist/subdistricts.js"
+        "types": "./dist/subdistrict.d.ts",
+        "default": "./dist/subdistrict.js"
       },
       "require": {
-        "types": "./dist/subdistricts.d.ts",
-        "default": "./dist/subdistricts.cjs"
+        "types": "./dist/subdistrict.d.ts",
+        "default": "./dist/subdistrict.cjs"
       }
     },
-    "./villages": {
+    "./village": {
       "import": {
-        "types": "./dist/villages.d.ts",
-        "default": "./dist/villages.js"
+        "types": "./dist/village.d.ts",
+        "default": "./dist/village.js"
       },
       "require": {
-        "types": "./dist/villages.d.ts",
-        "default": "./dist/villages.cjs"
+        "types": "./dist/village.d.ts",
+        "default": "./dist/village.cjs"
       }
     }
   },
