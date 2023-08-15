@@ -33,4 +33,7 @@ export const PROVINCE: Record<string, string> = {
   "82": "MALUKU UTARA",
   "91": "PAPUA",
   "92": "PAPUA BARAT",
+  "93": "PAPUA SELATAN",
+  "94": "PAPUA TENGAH",
+  "95": "PAPUA PEGUNUNGAN",
 };
