@@ -44,6 +44,8 @@ const start = async () => {
 
     const insert = (key: KEY) => {
       if (kode in RECORDS[key]) {
+        const found = DUPLICATES[key].find((region) => region.code === kode && region.name === RECORDS[key][kode]);
+        if (!found) DUPLICATES[key].push({ code: kode, name: RECORDS[key][kode] });
         DUPLICATES[key].push({ code: kode, name: nama });
       } else {
         RECORDS[key][kode] = nama;
