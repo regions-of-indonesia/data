@@ -2,11 +2,11 @@ lockfileVersion: '6.0'
 
 devDependencies:
   '@regions-of-indonesia/types':
-    specifier: 5.0.0
-    version: 5.0.0
+    specifier: 5.0.1
+    version: 5.0.1
   '@regions-of-indonesia/utils':
-    specifier: 5.0.0
-    version: 5.0.0
+    specifier: 5.0.1
+    version: 5.0.1
   '@types/prettier':
     specifier: ^2.7.2
     version: 2.7.2
@@ -523,12 +523,12 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@regions-of-indonesia/types@5.0.0:
-    resolution: {integrity: sha512-CwMyC9c0blQQYA2MFMWeFrHy/uQlsbcvYq/JKOrl/31wfKPFRYBVZUTRa0kfHIDReNCaFStnyXekLsowTl5FpA==}
+  /@regions-of-indonesia/types@5.0.1:
+    resolution: {integrity: sha512-uf8MB/0BgwQ+SdvgAR0E8KmFCKPSC8q4Hy2ubvaLm/NKJVfhkyjElXMBDwdWMq8qd9LRNtsezvkYG/saimEhHg==}
     dev: true
 
-  /@regions-of-indonesia/utils@5.0.0:
-    resolution: {integrity: sha512-ykGtWicGMgXN07ernz2i49yQE4lYYFpACn0mMLLmpSDkmvn6GcSErdC4BFnRDRAzRV50n3kCO4Y4GqykHTzzew==}
+  /@regions-of-indonesia/utils@5.0.1:
+    resolution: {integrity: sha512-bFFdE6lWtlhaZzPQ6go7oQ0yDMO2/skqV8t8KC2MrbUGkbF3x451SZqDSFdzIIUtKLl1e6G1U//4Ru5v/UONeA==}
     dev: true
 
   /@rollup/pluginutils@5.0.2:
