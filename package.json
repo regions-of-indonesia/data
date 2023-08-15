@@ -78,8 +78,8 @@
     "release": "pnpm test && pnpm build && release-it"
   },
   "devDependencies": {
-    "@regions-of-indonesia/types": "1.0.0-0",
-    "@regions-of-indonesia/utils": "1.0.0-3",
+    "@regions-of-indonesia/types": "5.0.0",
+    "@regions-of-indonesia/utils": "5.0.0",
     "@types/prettier": "^2.7.2",
     "@vitest/ui": "^0.31.1",
     "fs-jetpack": "^5.1.0",
