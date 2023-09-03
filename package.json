@@ -1,6 +1,6 @@
 {
   "name": "@regions-of-indonesia/data",
-  "version": "5.0.2",
+  "version": "5.1.0",
   "type": "module",
   "main": "./main.cjs",
   "types": "./main.d.ts",
