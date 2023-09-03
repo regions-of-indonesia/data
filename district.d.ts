@@ -1,1 +1,2 @@
-export declare const DISTRICT: Record<string, string>;
+declare const _default: Readonly<Record<string, string>>;
+export default _default;

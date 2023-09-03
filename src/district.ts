@@ -1,4 +1,4 @@
-export const DISTRICT: Record<string, string> = {
+export default {
   "11.01": "KAB. ACEH SELATAN",
   "11.02": "KAB. ACEH TENGGARA",
   "11.03": "KAB. ACEH TIMUR",
@@ -513,4 +513,4 @@ export const DISTRICT: Record<string, string> = {
   "95.06": "KAB. YALIMO",
   "95.07": "KAB. LANNY JAYA",
   "95.08": "KAB. NDUGA",
-};
+} as Readonly<Record<string, string>>;

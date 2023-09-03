@@ -1,4 +1,4 @@
-export const VILLAGE: Record<string, string> = {
+export default {
   "11.01.01.2001": "Keude Bakongan",
   "11.01.01.2002": "Ujong Mangki",
   "11.01.01.2003": "Ujong Padang",
@@ -83760,4 +83760,4 @@ export const VILLAGE: Record<string, string> = {
   "95.08.32.2002": "Trim",
   "95.08.32.2003": "Benggem",
   "95.08.32.2004": "Pasir Putih",
-};
+} as Readonly<Record<string, string>>;

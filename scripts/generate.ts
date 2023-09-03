@@ -113,12 +113,7 @@ const start = async () => {
   // write records[key]
   await Promise.all(
     KEYS.map((key) =>
-      src.writeAsync(
-        `${key.toLowerCase()}.ts`,
-        ts(`
-  export const ${key}: Record<string, string> = ${JSON.stringify(RECORDS[key])};
-  `)
-      )
+      src.writeAsync(`${key.toLowerCase()}.ts`, ts(`export default ${JSON.stringify(RECORDS[key])} as Readonly<Record<string, string>>;`))
     )
   );
 

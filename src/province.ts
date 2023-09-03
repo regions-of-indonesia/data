@@ -1,4 +1,4 @@
-export const PROVINCE: Record<string, string> = {
+export default {
   "11": "ACEH",
   "12": "SUMATERA UTARA",
   "13": "SUMATERA BARAT",
@@ -36,4 +36,4 @@ export const PROVINCE: Record<string, string> = {
   "93": "PAPUA SELATAN",
   "94": "PAPUA TENGAH",
   "95": "PAPUA PEGUNUNGAN",
-};
+} as Readonly<Record<string, string>>;
