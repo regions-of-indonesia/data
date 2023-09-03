@@ -58,6 +58,9 @@
   },
   "files": [
     "dist",
+    "main.cjs",
+    "main.d.ts",
+    "main.js",
     "province.d.ts",
     "district.d.ts",
     "subdistrict.d.ts",
