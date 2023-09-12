@@ -81,18 +81,17 @@
     "release": "pnpm build && pnpm test && release-it"
   },
   "devDependencies": {
-    "@regions-of-indonesia/types": "5.0.1",
-    "@regions-of-indonesia/utils": "5.0.1",
-    "@types/prettier": "^2.7.2",
-    "@vitest/ui": "^0.31.1",
+    "@regions-of-indonesia/types": "5.1.0",
+    "@regions-of-indonesia/utils": "5.1.0",
+    "@vitest/ui": "^0.34.4",
     "fs-jetpack": "^5.1.0",
-    "mysql2": "^3.3.2",
-    "prettier": "^2.8.8",
-    "release-it": "^15.10.3",
+    "mysql2": "^3.6.1",
+    "prettier": "^3.0.3",
+    "release-it": "^16.1.5",
     "table": "^6.8.1",
-    "tsx": "^3.12.7",
-    "vite": "^4.3.9",
-    "vite-plugin-dts": "^2.3.0",
-    "vitest": "^0.31.1"
+    "tsx": "^3.12.9",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.3",
+    "vitest": "^0.34.4"
   }
 }
