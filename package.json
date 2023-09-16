@@ -85,8 +85,8 @@
     "release": "pnpm build && pnpm test && release-it"
   },
   "devDependencies": {
-    "@regions-of-indonesia/types": "5.1.0",
-    "@regions-of-indonesia/utils": "5.1.0",
+    "@regions-of-indonesia/types": "5.1.1",
+    "@regions-of-indonesia/utils": "5.1.1",
     "@vitest/ui": "^0.34.4",
     "fs-jetpack": "^5.1.0",
     "mysql2": "^3.6.1",
