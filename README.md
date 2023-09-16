@@ -5,20 +5,20 @@
 <p align="center">
   <a title="license" href="https://github.com/regions-of-indonesia/data/blob/main/LICENSE">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/npm/l?t=dark&n=@regions-of-indonesia/data">
-      <img alt="license" src="https://none.deno.dev/npm/l?t=light&n=@regions-of-indonesia/data" hspace="1">
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/npm/l/@regions-of-indonesia/data">
+      <img alt="license" src="https://none.deno.dev/npm/l/@regions-of-indonesia/data" hspace="1">
     </picture>
   </a>
   <a title="version" href="https://www.npmjs.com/package/@regions-of-indonesia/data">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/npm/v?t=dark&n=@regions-of-indonesia/data">
-      <img alt="version" src="https://none.deno.dev/npm/v?t=light&n=@regions-of-indonesia/data" hspace="1">
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/npm/v/@regions-of-indonesia/data">
+      <img alt="version" src="https://none.deno.dev/npm/v/@regions-of-indonesia/data" hspace="1">
     </picture>
   </a>
   <a title="size" href="https://bundlejs.com/?q=@regions-of-indonesia/data">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/bundlejs/mz?t=dark&n=@regions-of-indonesia/data">
-      <img alt="size" src="https://none.deno.dev/bundlejs/mz?t=light&n=@regions-of-indonesia/data" hspace="1">
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/bundlejs/mz/@regions-of-indonesia/data">
+      <img alt="size" src="https://none.deno.dev/bundlejs/mz/@regions-of-indonesia/data" hspace="1">
     </picture>
   </a>
 </p>
