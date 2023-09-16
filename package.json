@@ -1,6 +1,10 @@
 {
   "name": "@regions-of-indonesia/data",
   "version": "5.2.0",
+  "description": "Regions of Indonesia raw data",
+  "keywords": [
+    "regions-of-indonesia"
+  ],
   "type": "module",
   "main": "./main.cjs",
   "types": "./main.d.ts",
