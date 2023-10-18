@@ -108,12 +108,19 @@ const start = async () => {
   }
 
   // format typescript
-  const ts = (source: string) => format(source, { parser: "typescript" });
+  const ts = async (source: string) => await format(source, { parser: "typescript" });
 
   // write records[key]
   await Promise.all(
-    KEYS.map((key) =>
-      src.writeAsync(`${key.toLowerCase()}.ts`, ts(`export default ${JSON.stringify(RECORDS[key])} as Readonly<Record<string, string>>;`))
+    KEYS.map(
+      (key) =>
+        new Promise<void>(async (resolve) => {
+          src.writeAsync(
+            `${key.toLowerCase()}.ts`,
+            await ts(`export default ${JSON.stringify(RECORDS[key])} as Readonly<Record<string, string>>;`)
+          );
+          resolve();
+        })
     )
   );
 
